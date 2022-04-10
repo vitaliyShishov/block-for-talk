@@ -1,0 +1,9 @@
+<div class="block-holder">
+  <div
+    [ngClass]="{ highlight: propToShow === 'userId' }"
+    class="block-wrapper"
+    (click)="setPropToShow()"
+  >
+    <span>{{ postData && postData[propToShow] }}</span>
+  </div>
+</div>
