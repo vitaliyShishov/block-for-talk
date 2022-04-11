@@ -1,0 +1,27 @@
+.block-holder {
+  display: flex;
+  height: 100%;
+  padding: 6px;
+  align-items: center;
+  justify-content: center;
+  .block-wrapper {
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    border: 3px solid rgba(0, 0, 0, 0.65);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 300;
+    transition: box-shadow 0.3s ease-in-out;
+    user-select: none;
+    box-shadow: 0px 0px 15px 2px #f08cf2;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+    &.highlight {
+      box-shadow: 0px 0px 15px 2px #3300ff;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 100%;
+  font-family: "Londrina Solid", cursive;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > * {
+    height: 75%;
+    width: 75%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}

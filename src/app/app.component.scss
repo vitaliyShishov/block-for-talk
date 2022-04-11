@@ -1,0 +1,11 @@
+.blocks-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1%;
+  height: 100%;
+  padding: 12px;
+  justify-content: space-between;
+  > * {
+    flex: 0 9%;
+  }
+}
