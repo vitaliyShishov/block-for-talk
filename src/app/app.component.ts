@@ -1,6 +1,7 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { ApiCallService } from './services/api-call.service';
+import { Component } from '@angular/core';
+import { catchError, Observable } from 'rxjs';
 import { IPostData } from './interfaces/IPostData';
+import { PostsService } from './services/posts.service';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +9,17 @@ import { IPostData } from './interfaces/IPostData';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  posts: Array<IPostData> = [];
-  constructor(private apiCallService: ApiCallService) {}
   title = 'block-for-talk';
+  posts$: Observable<any> = new Observable<Array<IPostData>>();
+  errorMessage = '';
+  constructor(private postsService: PostsService) {}
 
   ngAfterViewInit() {
-    this.getPosts();
-  }
-
-  getPosts() {
-    this.apiCallService.getPosts().subscribe((data: Array<IPostData>) => {
-      this.posts = data;
-    });
+    this.posts$ = this.postsService.posts$.pipe(
+      catchError((e) => {
+        this.errorMessage = e.message;
+        return [];
+      })
+    );
   }
 }

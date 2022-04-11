@@ -1,5 +1,11 @@
 <div class="blocks-wrapper">
-  <ng-container *ngFor="let post of posts">
+  <span *ngIf="errorMessage">
+    Sorry, error occur:
+    <br />
+    <br />
+    {{ errorMessage }}
+  </span>
+  <ng-container *ngFor="let post of posts$ | async">
     <app-block [postData]="post"></app-block>
   </ng-container>
 </div>
