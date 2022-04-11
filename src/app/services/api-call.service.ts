@@ -9,7 +9,7 @@ import { IPostData } from '../interfaces/IPostData';
 export class ApiCallService {
   constructor(private _http: HttpClient) {}
 
-  getBlocks(): Observable<Array<IPostData>> {
+  getPosts(): Observable<Array<IPostData>> {
     return this._http.get<Array<IPostData>>(
       'https://jsonplaceholder.typicode.com/posts'
     );
